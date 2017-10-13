@@ -14,7 +14,7 @@ public class UserRepository {
 
     static{
         users.add(new User(100, "lhassinger", "tecsup", "Linder Hassinger"));
-        users.add(new User(200, "djermias", "tecsup", "Carolina Jeremias"));
+        users.add(new User(200, "lucas", "tecsup", "Lucas Hassinger"));
         users.add(new User(300, "khanz", "tecsup", "Keving Hanz"));
     }
 
