@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">SharePreferences</string>
+    <string name="app_name">MyPersonalApp</string>
     <string name="ingresar_registrar">Ingresar / Registrar</string>
     <string-array name="listArray">
-        <item>Encabezamientos</item>
-        <item>Encabezados y Detalles</item>
-        <item>Toda la información</item>
+        <item>Oscuros</item>
+        <item>Ligero</item>
+        <item>Otro</item>
     </string-array>
 
     <string-array name="listValues">

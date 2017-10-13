@@ -13,16 +13,22 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.ftinc.scoop.Scoop;
 import com.linder.sharepreferences.R;
 import com.linder.sharepreferences.repository.UserRepository;
 import com.linder.sharepreferences.model.User;
+import com.vstechlab.easyfonts.EasyFonts;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class DashboardActivity extends AppCompatActivity {
     private static final String TAG = DashboardActivity.class.getSimpleName();
     private DrawerLayout drawerLayout;
+    private Button change;
 
     // SharedPreferences
     private SharedPreferences sharedPreferences;
@@ -68,6 +74,8 @@ public class DashboardActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         boolean success = editor.putBoolean("islogged", false).commit();
                         // boolean success = editor.clear().commit(); // not recommended
+                        Intent intent1 = new Intent(DashboardActivity.this, LoginActivity.class);
+                        startActivity(intent1);
                         finish();
                         break;
                 }
@@ -89,10 +97,12 @@ public class DashboardActivity extends AppCompatActivity {
 
         User user = UserRepository.getUser(username);
         TextView textp = (TextView) findViewById(R.id.fulnameuser);
-        textp.setText(user.getFullname());
+        textp.setText(username);
         TextView fullnameText = (TextView) navigationView.getHeaderView(0).findViewById(R.id.menu_fullname);
-        fullnameText.setText(user.getFullname());
-        Log.d("NameUser", user.getFullname());
+        fullnameText.setText(username);
+        //fullnameText.setTypeface(EasyFonts.r(this));
+
+        Log.d("NameUser", username);
 //        usernameText.setText(user.getFullname());
     }
 

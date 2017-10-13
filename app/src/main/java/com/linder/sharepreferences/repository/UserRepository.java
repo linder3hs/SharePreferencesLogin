@@ -14,8 +14,17 @@ public class UserRepository {
 
     static{
         users.add(new User(100, "lhassinger", "tecsup", "Linder Hassinger"));
-        users.add(new User(200, "djermias", "tecsup", "Carolina Jeremias"));
+        users.add(new User(200, "c jermias", "tecsup", "Carolina Jeremias"));
         users.add(new User(300, "khanz", "tecsup", "Keving Hanz"));
+    }
+
+    public static User addUser( String username, String password, String fullname){
+        for ( int i = 400; i< 99999; i+=100){
+            users.add(new User(i, username, password, fullname));
+
+        }
+        return login(username, password);
+
     }
 
     public static User login(String username, String password){

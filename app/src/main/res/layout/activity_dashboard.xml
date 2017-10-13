@@ -42,7 +42,14 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="93dp"
             android:textSize="32sp"
+            fontPath="fonts/MyFont.ttf"
             android:text="TextView" />
+
+        <Button
+            android:id="@+id/changeStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cambiar estilo"/>
     </RelativeLayout>
     </android.support.design.widget.CoordinatorLayout>
 

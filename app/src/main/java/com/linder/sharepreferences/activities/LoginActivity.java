@@ -56,28 +56,30 @@ public class LoginActivity extends AppCompatActivity {
 
         String username = usernameInput.getText().toString();
         String password = passwordInput.getText().toString();
+        String fullname = username;
 
         if(username.isEmpty() || password.isEmpty()){
-            Toast.makeText(this, "You must complete these fields", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Completa los campos", Toast.LENGTH_SHORT).show();
             return;
         }
 
         // Login logic
-        User user = UserRepository.login(username, password);
+       User user = UserRepository.login(username, password);
 
         if(user == null){
-            Toast.makeText(this, "Username or password invalid", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Vuelve a dar click para registrarte", Toast.LENGTH_SHORT).show();
             loginPanel.setVisibility(View.VISIBLE);
             progressBar.setVisibility(View.GONE);
+            UserRepository.addUser(username, password,fullname);
             return;
         }
 
-        Toast.makeText(this, "Welcome " + user.getFullname(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Bienvenido " + username, Toast.LENGTH_SHORT).show();
 
         // Save to SharedPreferences
         SharedPreferences.Editor editor = sharedPreferences.edit();
         boolean success = editor
-                .putString("username", user.getUsername())
+                .putString("username", username)
                 .putBoolean("islogged", true)
                 .commit();
 
