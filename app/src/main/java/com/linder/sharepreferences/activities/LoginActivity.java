@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.linder.sharepreferences.R;
 import com.linder.sharepreferences.repository.UserRepository;
 import com.linder.sharepreferences.model.User;
-
+//orm
 public class LoginActivity extends AppCompatActivity {
     // SharedPreferences
     private SharedPreferences sharedPreferences;

@@ -1,6 +1,6 @@
 package com.linder.sharepreferences.model;
 import com.orm.dsl.Table;
-
+//orm
 /**
  * Created by linderhassinger on 10/9/17.
  */
