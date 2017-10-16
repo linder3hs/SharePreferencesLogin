@@ -95,7 +95,7 @@ public class DashboardActivity extends AppCompatActivity {
         String username = sharedPreferences.getString("username", null);
         Log.d(TAG, "username: " + username);
 
-        User user = UserRepository.getUser(username);
+       // User user = UserRepository.getUser(username);
         TextView textp = (TextView) findViewById(R.id.fulnameuser);
         textp.setText(username);
         TextView fullnameText = (TextView) navigationView.getHeaderView(0).findViewById(R.id.menu_fullname);

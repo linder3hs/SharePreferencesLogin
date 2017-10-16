@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -70,21 +71,25 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this, "Vuelve a dar click para registrarte", Toast.LENGTH_SHORT).show();
             loginPanel.setVisibility(View.VISIBLE);
             progressBar.setVisibility(View.GONE);
-            UserRepository.addUser(username, password,fullname);
+            UserRepository.create( fullname, password, username);
+            Log.d("fullname: " , fullname);
+            Log.d("pw: ", password);
             return;
+        }else {
+
+
+            Toast.makeText(this, "Bienvenido " + username, Toast.LENGTH_SHORT).show();
+
+            // Save to SharedPreferences
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            boolean success = editor
+                    .putString("username", username)
+                    .putBoolean("islogged", true)
+                    .commit();
+
+            // Go to Dashboard
+            goDashboard();
         }
-
-        Toast.makeText(this, "Bienvenido " + username, Toast.LENGTH_SHORT).show();
-
-        // Save to SharedPreferences
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        boolean success = editor
-                .putString("username", username)
-                .putBoolean("islogged", true)
-                .commit();
-
-        // Go to Dashboard
-        goDashboard();
     }
 
     private void goDashboard(){

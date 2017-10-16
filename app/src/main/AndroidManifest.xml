@@ -3,22 +3,43 @@
     package="com.linder.sharepreferences">
 
     <application
+        android:name="com.orm.SugarApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.MainActivity" android:theme="@style/AppTheme.NoActionBar">
+        <meta-data
+            android:name="DATABASE"
+            android:value="sugarormapp.db" />
+        <meta-data
+            android:name="VERSION"
+            android:value="1" />
+        <meta-data
+            android:name="QUERY_LOG"
+            android:value="true" />
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="com.linder.sharepreferences.model" />
+
+        <activity
+            android:name=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.LoginActivity" android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.DashboardActivity" android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.MyPreferencesActivity"></activity>
+        <activity
+            android:name=".activities.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.DashboardActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.MyPreferencesActivity" />
+        <activity android:name=".RegisterActivity"></activity>
     </application>
 
 </manifest>
